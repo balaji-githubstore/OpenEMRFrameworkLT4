@@ -8,8 +8,11 @@ Resource    ../base/common_functionality.resource
 Test Setup      Launch Browser
 Test Teardown   End Browser
 
-*** Test Cases ***
+Test Template   Verify Valid Credentials Template
 
+*** Test Cases ***
+TC1     admin      pass     English (Indian)        OpenEMR
+TC2     physician       physician       English (Indian)        OpenEMR
 
 
 *** Keywords ***
