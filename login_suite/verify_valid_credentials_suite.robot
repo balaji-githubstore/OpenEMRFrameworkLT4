@@ -5,15 +5,16 @@ Documentation      This suit file handles all the test case related to the
 Library     SeleniumLibrary
 Resource    ../base/common_functionality.resource
 
+#Library     DataDriver      file=../test_data/OpenEMRData.xlsx      sheet_name=VerifyValidCredentialsTemplate
+Library     DataDriver      file=../test_data/verify_valid_credentials.csv
+
 Test Setup      Launch Browser
 Test Teardown   End Browser
 
 Test Template   Verify Valid Credentials Template
 
 *** Test Cases ***
-TC1     admin      pass     English (Indian)        OpenEMR
-TC2     physician       physician       English (Indian)        OpenEMR
-
+TC1
 
 *** Keywords ***
 Verify Valid Credentials Template
