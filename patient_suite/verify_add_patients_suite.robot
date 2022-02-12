@@ -10,7 +10,7 @@ Update DOB as today's date
 Update the Sex
  Click on the create new patient button above the form
  Click on confirm create new patient button.
- Print the text from alert box (if any error before handling alert add 5 sec wait)
+ Print the text from alert box
  Handle alert
  Close the Happy Birthday popup
  Get the added patient name and print in the console.
