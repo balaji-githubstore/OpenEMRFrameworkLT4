@@ -15,6 +15,9 @@ John, john123, Dutch, Invalid username or password
 peter, peter123, Danish, Invalid username or password
 Mark, Mark123, Greek, Invalid username or password
 
+TO trigger the one test case
+robot -t "TC1" login_suite/verify_invalid_credentials_suite.robot
+
 *** Test Cases ***
 TC1     John        john123         Dutch       Invalid username or password
 TC2     peter        peter123         Danish       Invalid username or password

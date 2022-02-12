@@ -1,242 +1,498 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.2 on darwin)" generated="20220212 09:48:23.530" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.3 (Python 3.10.2 on darwin)" generated="20220212 10:19:02.517" rpa="false" schemaversion="2">
 <suite id="s1" name="Verify Invalid Credentials Suite" source="/Users/balaji/Documents/Company/LT4/robot_framework/login_suite/verify_invalid_credentials_suite.robot">
 <test id="s1-t1" name="TC1">
 <kw name="Launch Browser" library="common_functionality" type="SETUP">
 <kw name="Set Local Variable" library="BuiltIn">
-<arg>${driver}</arg>
+<arg>${driver_path}</arg>
 <arg>chromedriver</arg>
 <doc>Makes a variable available everywhere within the local scope.</doc>
-<msg timestamp="20220212 09:48:23.763" level="INFO">${driver} = chromedriver</msg>
-<status status="PASS" starttime="20220212 09:48:23.762" endtime="20220212 09:48:23.763"/>
+<msg timestamp="20220212 10:19:02.695" level="INFO">${driver_path} = chromedriver</msg>
+<status status="PASS" starttime="20220212 10:19:02.694" endtime="20220212 10:19:02.695"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${EXECDIR}${/}drivers${/}${driver}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220212 09:48:23.764" endtime="20220212 09:48:23.764"/>
+<if>
+<branch type="IF" condition="'${BROWSER_NAME}' == 'firefox'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>geckodriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:02.695" endtime="20220212 10:19:02.695"/>
 </kw>
+<status status="NOT RUN" starttime="20220212 10:19:02.695" endtime="20220212 10:19:02.696"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'edge'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>msedgedriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:02.696" endtime="20220212 10:19:02.696"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:02.696" endtime="20220212 10:19:02.696"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'safari'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>safaridriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:02.696" endtime="20220212 10:19:02.696"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:02.696" endtime="20220212 10:19:02.696"/>
+</branch>
+<status status="PASS" starttime="20220212 10:19:02.695" endtime="20220212 10:19:02.696"/>
+</if>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=${BROWSER_NAME}</arg>
-<arg>executable_path=${EXECDIR}${/}drivers${/}chromedriver</arg>
+<arg>executable_path=${EXECDIR}${/}drivers${/}${driver_path}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220212 09:48:23.765" level="INFO">Opening browser 'safari' to base url 'None'.</msg>
-<msg timestamp="20220212 09:48:54.077" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20220212 09:48:54.086" level="FAIL">WebDriverException: Message: Can not connect to the Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver
-</msg>
-<status status="FAIL" starttime="20220212 09:48:23.764" endtime="20220212 09:48:54.086"/>
+<msg timestamp="20220212 10:19:02.697" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220212 10:19:02.696" endtime="20220212 10:19:04.562"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.087" endtime="20220212 09:48:54.087"/>
+<status status="PASS" starttime="20220212 10:19:04.563" endtime="20220212 10:19:04.676"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.087" endtime="20220212 09:48:54.087"/>
+<status status="PASS" starttime="20220212 10:19:04.676" endtime="20220212 10:19:04.677"/>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>${EXECDIR}${/}screenshot</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.087" endtime="20220212 09:48:54.087"/>
+<status status="PASS" starttime="20220212 10:19:04.677" endtime="20220212 10:19:04.678"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.088" endtime="20220212 09:48:54.088"/>
+<msg timestamp="20220212 10:19:04.678" level="INFO">Opening url 'https://demo.openemr.io/a/openemr'</msg>
+<status status="PASS" starttime="20220212 10:19:04.678" endtime="20220212 10:19:08.005"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:23.761" endtime="20220212 09:48:54.088"/>
+<status status="PASS" starttime="20220212 10:19:02.694" endtime="20220212 10:19:08.005"/>
+</kw>
+<kw name="Verify Invalid Credential Template">
+<arg>John</arg>
+<arg>john123</arg>
+<arg>Dutch</arg>
+<arg>Invalid username or password</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=authUser</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:08.007" level="INFO">Typing text 'John' into text field 'id=authUser'.</msg>
+<status status="PASS" starttime="20220212 10:19:08.007" endtime="20220212 10:19:08.106"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:08.106" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20220212 10:19:08.142" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220212 10:19:08.174" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220212 10:19:08.106" endtime="20220212 10:19:08.174"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name=languageChoice</arg>
+<arg>${language}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220212 10:19:08.175" level="INFO">Selecting options from selection list 'name=languageChoice' by label Dutch.</msg>
+<status status="PASS" starttime="20220212 10:19:08.174" endtime="20220212 10:19:08.224"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:08.225" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220212 10:19:08.225" endtime="20220212 10:19:09.152"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Invalid')]</arg>
+<arg>${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220212 10:19:09.172" level="INFO">Element '//div[contains(text(),'Invalid')]' contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20220212 10:19:09.152" endtime="20220212 10:19:09.173"/>
+</kw>
+<status status="PASS" starttime="20220212 10:19:08.006" endtime="20220212 10:19:09.173"/>
 </kw>
 <kw name="End Browser" library="common_functionality" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220212 09:48:54.089" endtime="20220212 09:48:54.089"/>
+<status status="PASS" starttime="20220212 10:19:09.173" endtime="20220212 10:19:09.262"/>
 </kw>
-<status status="PASS" starttime="20220212 09:48:54.089" endtime="20220212 09:48:54.089"/>
+<status status="PASS" starttime="20220212 10:19:09.173" endtime="20220212 10:19:09.263"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:23.760" endtime="20220212 09:48:54.090">Setup failed:
-WebDriverException: Message: Can not connect to the Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver
-</status>
+<status status="PASS" starttime="20220212 10:19:02.693" endtime="20220212 10:19:09.263"/>
 </test>
 <test id="s1-t2" name="TC2">
 <kw name="Launch Browser" library="common_functionality" type="SETUP">
 <kw name="Set Local Variable" library="BuiltIn">
-<arg>${driver}</arg>
+<arg>${driver_path}</arg>
 <arg>chromedriver</arg>
 <doc>Makes a variable available everywhere within the local scope.</doc>
-<msg timestamp="20220212 09:48:54.092" level="INFO">${driver} = chromedriver</msg>
-<status status="PASS" starttime="20220212 09:48:54.091" endtime="20220212 09:48:54.092"/>
+<msg timestamp="20220212 10:19:09.267" level="INFO">${driver_path} = chromedriver</msg>
+<status status="PASS" starttime="20220212 10:19:09.265" endtime="20220212 10:19:09.267"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${EXECDIR}${/}drivers${/}${driver}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220212 09:48:54.092" endtime="20220212 09:48:54.093"/>
+<if>
+<branch type="IF" condition="'${BROWSER_NAME}' == 'firefox'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>geckodriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:09.267" endtime="20220212 10:19:09.267"/>
 </kw>
+<status status="NOT RUN" starttime="20220212 10:19:09.267" endtime="20220212 10:19:09.267"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'edge'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>msedgedriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:09.267" endtime="20220212 10:19:09.268"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:09.267" endtime="20220212 10:19:09.268"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'safari'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>safaridriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:09.268" endtime="20220212 10:19:09.268"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:09.268" endtime="20220212 10:19:09.268"/>
+</branch>
+<status status="PASS" starttime="20220212 10:19:09.267" endtime="20220212 10:19:09.268"/>
+</if>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=${BROWSER_NAME}</arg>
-<arg>executable_path=${EXECDIR}${/}drivers${/}chromedriver</arg>
+<arg>executable_path=${EXECDIR}${/}drivers${/}${driver_path}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220212 09:48:54.094" level="INFO">Opening browser 'safari' to base url 'None'.</msg>
-<msg timestamp="20220212 09:48:54.602" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20220212 09:48:54.604" level="FAIL">WebDriverException: Message: Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver unexpectedly exited. Status code was: 1
-</msg>
-<status status="FAIL" starttime="20220212 09:48:54.093" endtime="20220212 09:48:54.604"/>
+<msg timestamp="20220212 10:19:09.269" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220212 10:19:09.268" endtime="20220212 10:19:11.095"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.605" endtime="20220212 09:48:54.605"/>
+<status status="PASS" starttime="20220212 10:19:11.096" endtime="20220212 10:19:11.211"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.606" endtime="20220212 09:48:54.606"/>
+<status status="PASS" starttime="20220212 10:19:11.211" endtime="20220212 10:19:11.212"/>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>${EXECDIR}${/}screenshot</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.606" endtime="20220212 09:48:54.606"/>
+<status status="PASS" starttime="20220212 10:19:11.213" endtime="20220212 10:19:11.213"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:54.606" endtime="20220212 09:48:54.606"/>
+<msg timestamp="20220212 10:19:11.214" level="INFO">Opening url 'https://demo.openemr.io/a/openemr'</msg>
+<status status="PASS" starttime="20220212 10:19:11.213" endtime="20220212 10:19:14.370"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:54.091" endtime="20220212 09:48:54.607"/>
+<status status="PASS" starttime="20220212 10:19:09.265" endtime="20220212 10:19:14.370"/>
+</kw>
+<kw name="Verify Invalid Credential Template">
+<arg>peter</arg>
+<arg>peter123</arg>
+<arg>Danish</arg>
+<arg>Invalid username or password</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=authUser</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:14.373" level="INFO">Typing text 'peter' into text field 'id=authUser'.</msg>
+<status status="PASS" starttime="20220212 10:19:14.372" endtime="20220212 10:19:14.462"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:14.462" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20220212 10:19:14.496" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220212 10:19:14.537" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220212 10:19:14.462" endtime="20220212 10:19:14.537"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name=languageChoice</arg>
+<arg>${language}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220212 10:19:14.538" level="INFO">Selecting options from selection list 'name=languageChoice' by label Danish.</msg>
+<status status="PASS" starttime="20220212 10:19:14.537" endtime="20220212 10:19:14.610"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:14.610" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220212 10:19:14.610" endtime="20220212 10:19:15.558"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Invalid')]</arg>
+<arg>${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220212 10:19:15.608" level="INFO">Element '//div[contains(text(),'Invalid')]' contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20220212 10:19:15.558" endtime="20220212 10:19:15.608"/>
+</kw>
+<status status="PASS" starttime="20220212 10:19:14.371" endtime="20220212 10:19:15.608"/>
 </kw>
 <kw name="End Browser" library="common_functionality" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220212 09:48:54.608" endtime="20220212 09:48:54.608"/>
+<status status="PASS" starttime="20220212 10:19:15.608" endtime="20220212 10:19:15.687"/>
 </kw>
-<status status="PASS" starttime="20220212 09:48:54.607" endtime="20220212 09:48:54.608"/>
+<status status="PASS" starttime="20220212 10:19:15.608" endtime="20220212 10:19:15.687"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:54.090" endtime="20220212 09:48:54.608">Setup failed:
-WebDriverException: Message: Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver unexpectedly exited. Status code was: 1
-</status>
+<status status="PASS" starttime="20220212 10:19:09.264" endtime="20220212 10:19:15.687"/>
 </test>
 <test id="s1-t3" name="TC3">
 <kw name="Launch Browser" library="common_functionality" type="SETUP">
 <kw name="Set Local Variable" library="BuiltIn">
-<arg>${driver}</arg>
+<arg>${driver_path}</arg>
 <arg>chromedriver</arg>
 <doc>Makes a variable available everywhere within the local scope.</doc>
-<msg timestamp="20220212 09:48:54.611" level="INFO">${driver} = chromedriver</msg>
-<status status="PASS" starttime="20220212 09:48:54.610" endtime="20220212 09:48:54.611"/>
+<msg timestamp="20220212 10:19:15.690" level="INFO">${driver_path} = chromedriver</msg>
+<status status="PASS" starttime="20220212 10:19:15.689" endtime="20220212 10:19:15.691"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${EXECDIR}${/}drivers${/}${driver}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220212 09:48:54.611" endtime="20220212 09:48:54.612"/>
+<if>
+<branch type="IF" condition="'${BROWSER_NAME}' == 'firefox'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>geckodriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:15.691" endtime="20220212 10:19:15.691"/>
 </kw>
+<status status="NOT RUN" starttime="20220212 10:19:15.691" endtime="20220212 10:19:15.692"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'edge'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>msedgedriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:15.692" endtime="20220212 10:19:15.692"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:15.692" endtime="20220212 10:19:15.692"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'safari'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>safaridriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:15.693" endtime="20220212 10:19:15.693"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:15.693" endtime="20220212 10:19:15.693"/>
+</branch>
+<status status="PASS" starttime="20220212 10:19:15.691" endtime="20220212 10:19:15.693"/>
+</if>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=${BROWSER_NAME}</arg>
-<arg>executable_path=${EXECDIR}${/}drivers${/}chromedriver</arg>
+<arg>executable_path=${EXECDIR}${/}drivers${/}${driver_path}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220212 09:48:54.613" level="INFO">Opening browser 'safari' to base url 'None'.</msg>
-<msg timestamp="20220212 09:48:55.121" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20220212 09:48:55.134" level="FAIL">WebDriverException: Message: Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver unexpectedly exited. Status code was: 1
-</msg>
-<status status="FAIL" starttime="20220212 09:48:54.612" endtime="20220212 09:48:55.134"/>
+<msg timestamp="20220212 10:19:15.694" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220212 10:19:15.693" endtime="20220212 10:19:17.480"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.135" endtime="20220212 09:48:55.135"/>
+<status status="PASS" starttime="20220212 10:19:17.481" endtime="20220212 10:19:17.594"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.135" endtime="20220212 09:48:55.135"/>
+<status status="PASS" starttime="20220212 10:19:17.594" endtime="20220212 10:19:17.596"/>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>${EXECDIR}${/}screenshot</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.135" endtime="20220212 09:48:55.135"/>
+<status status="PASS" starttime="20220212 10:19:17.596" endtime="20220212 10:19:17.596"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.136" endtime="20220212 09:48:55.136"/>
+<msg timestamp="20220212 10:19:17.597" level="INFO">Opening url 'https://demo.openemr.io/a/openemr'</msg>
+<status status="PASS" starttime="20220212 10:19:17.596" endtime="20220212 10:19:20.802"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:54.609" endtime="20220212 09:48:55.136"/>
+<status status="PASS" starttime="20220212 10:19:15.689" endtime="20220212 10:19:20.802"/>
+</kw>
+<kw name="Verify Invalid Credential Template">
+<arg>${EMPTY}</arg>
+<arg>peter123</arg>
+<arg>Dutch</arg>
+<arg>Invalid username or password</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=authUser</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:20.805" level="INFO">Typing text '' into text field 'id=authUser'.</msg>
+<status status="PASS" starttime="20220212 10:19:20.804" endtime="20220212 10:19:20.862"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:20.862" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20220212 10:19:20.891" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220212 10:19:20.964" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220212 10:19:20.862" endtime="20220212 10:19:20.964"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name=languageChoice</arg>
+<arg>${language}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220212 10:19:20.965" level="INFO">Selecting options from selection list 'name=languageChoice' by label Dutch.</msg>
+<status status="PASS" starttime="20220212 10:19:20.964" endtime="20220212 10:19:21.043"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:21.043" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220212 10:19:21.043" endtime="20220212 10:19:22.030"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Invalid')]</arg>
+<arg>${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220212 10:19:22.091" level="INFO">Element '//div[contains(text(),'Invalid')]' contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20220212 10:19:22.030" endtime="20220212 10:19:22.091"/>
+</kw>
+<status status="PASS" starttime="20220212 10:19:20.802" endtime="20220212 10:19:22.092"/>
 </kw>
 <kw name="End Browser" library="common_functionality" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220212 09:48:55.137" endtime="20220212 09:48:55.138"/>
+<status status="PASS" starttime="20220212 10:19:22.092" endtime="20220212 10:19:22.172"/>
 </kw>
-<status status="PASS" starttime="20220212 09:48:55.137" endtime="20220212 09:48:55.138"/>
+<status status="PASS" starttime="20220212 10:19:22.092" endtime="20220212 10:19:22.172"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:54.609" endtime="20220212 09:48:55.138">Setup failed:
-WebDriverException: Message: Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver unexpectedly exited. Status code was: 1
-</status>
+<status status="PASS" starttime="20220212 10:19:15.688" endtime="20220212 10:19:22.172"/>
 </test>
 <test id="s1-t4" name="TC4">
 <kw name="Launch Browser" library="common_functionality" type="SETUP">
 <kw name="Set Local Variable" library="BuiltIn">
-<arg>${driver}</arg>
+<arg>${driver_path}</arg>
 <arg>chromedriver</arg>
 <doc>Makes a variable available everywhere within the local scope.</doc>
-<msg timestamp="20220212 09:48:55.141" level="INFO">${driver} = chromedriver</msg>
-<status status="PASS" starttime="20220212 09:48:55.139" endtime="20220212 09:48:55.141"/>
+<msg timestamp="20220212 10:19:22.177" level="INFO">${driver_path} = chromedriver</msg>
+<status status="PASS" starttime="20220212 10:19:22.175" endtime="20220212 10:19:22.177"/>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${EXECDIR}${/}drivers${/}${driver}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220212 09:48:55.141" endtime="20220212 09:48:55.142"/>
+<if>
+<branch type="IF" condition="'${BROWSER_NAME}' == 'firefox'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>geckodriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:22.177" endtime="20220212 10:19:22.178"/>
 </kw>
+<status status="NOT RUN" starttime="20220212 10:19:22.177" endtime="20220212 10:19:22.178"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'edge'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>msedgedriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:22.178" endtime="20220212 10:19:22.178"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:22.178" endtime="20220212 10:19:22.178"/>
+</branch>
+<branch type="ELSE IF" condition="'${BROWSER_NAME}' == 'safari'">
+<kw name="Set Local Variable" library="BuiltIn">
+<arg>${driver_path}</arg>
+<arg>safaridriver</arg>
+<doc>Makes a variable available everywhere within the local scope.</doc>
+<status status="NOT RUN" starttime="20220212 10:19:22.178" endtime="20220212 10:19:22.178"/>
+</kw>
+<status status="NOT RUN" starttime="20220212 10:19:22.178" endtime="20220212 10:19:22.178"/>
+</branch>
+<status status="PASS" starttime="20220212 10:19:22.177" endtime="20220212 10:19:22.178"/>
+</if>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>browser=${BROWSER_NAME}</arg>
-<arg>executable_path=${EXECDIR}${/}drivers${/}chromedriver</arg>
+<arg>executable_path=${EXECDIR}${/}drivers${/}${driver_path}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220212 09:48:55.143" level="INFO">Opening browser 'safari' to base url 'None'.</msg>
-<msg timestamp="20220212 09:48:55.659" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20220212 09:48:55.662" level="FAIL">WebDriverException: Message: Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver unexpectedly exited. Status code was: 1
-</msg>
-<status status="FAIL" starttime="20220212 09:48:55.142" endtime="20220212 09:48:55.662"/>
+<msg timestamp="20220212 10:19:22.179" level="INFO">Opening browser 'chrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20220212 10:19:22.178" endtime="20220212 10:19:23.960"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.663" endtime="20220212 09:48:55.664"/>
+<status status="PASS" starttime="20220212 10:19:23.960" endtime="20220212 10:19:24.072"/>
 </kw>
 <kw name="Set Selenium Implicit Wait" library="SeleniumLibrary">
 <arg>30s</arg>
 <doc>Sets the implicit wait value used by Selenium.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.664" endtime="20220212 09:48:55.664"/>
+<status status="PASS" starttime="20220212 10:19:24.072" endtime="20220212 10:19:24.073"/>
 </kw>
 <kw name="Set Screenshot Directory" library="SeleniumLibrary">
 <arg>${EXECDIR}${/}screenshot</arg>
 <doc>Sets the directory for captured screenshots.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.664" endtime="20220212 09:48:55.664"/>
+<status status="PASS" starttime="20220212 10:19:24.073" endtime="20220212 10:19:24.074"/>
 </kw>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>url=${URL}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<status status="NOT RUN" starttime="20220212 09:48:55.664" endtime="20220212 09:48:55.664"/>
+<msg timestamp="20220212 10:19:24.075" level="INFO">Opening url 'https://demo.openemr.io/a/openemr'</msg>
+<status status="PASS" starttime="20220212 10:19:24.074" endtime="20220212 10:19:27.415"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:55.139" endtime="20220212 09:48:55.665"/>
+<status status="PASS" starttime="20220212 10:19:22.174" endtime="20220212 10:19:27.416"/>
+</kw>
+<kw name="Verify Invalid Credential Template">
+<arg>peter</arg>
+<arg>${EMPTY}</arg>
+<arg>Greek</arg>
+<arg>Invalid username or password</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=authUser</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:27.419" level="INFO">Typing text 'peter' into text field 'id=authUser'.</msg>
+<status status="PASS" starttime="20220212 10:19:27.418" endtime="20220212 10:19:27.515"/>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>id=clearPass</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:27.515" level="INFO">Typing password into text field 'id=clearPass'.</msg>
+<msg timestamp="20220212 10:19:27.548" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220212 10:19:27.584" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220212 10:19:27.515" endtime="20220212 10:19:27.584"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name=languageChoice</arg>
+<arg>${language}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220212 10:19:27.585" level="INFO">Selecting options from selection list 'name=languageChoice' by label Greek.</msg>
+<status status="PASS" starttime="20220212 10:19:27.584" endtime="20220212 10:19:27.661"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@type='submit']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220212 10:19:27.661" level="INFO">Clicking element 'xpath=//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220212 10:19:27.661" endtime="20220212 10:19:28.629"/>
+</kw>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>//div[contains(text(),'Invalid')]</arg>
+<arg>${expected_error}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220212 10:19:28.685" level="INFO">Element '//div[contains(text(),'Invalid')]' contains text 'Invalid username or password'.</msg>
+<status status="PASS" starttime="20220212 10:19:28.629" endtime="20220212 10:19:28.685"/>
+</kw>
+<status status="PASS" starttime="20220212 10:19:27.416" endtime="20220212 10:19:28.685"/>
 </kw>
 <kw name="End Browser" library="common_functionality" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20220212 09:48:55.667" endtime="20220212 09:48:55.667"/>
+<status status="PASS" starttime="20220212 10:19:28.686" endtime="20220212 10:19:28.769"/>
 </kw>
-<status status="PASS" starttime="20220212 09:48:55.666" endtime="20220212 09:48:55.667"/>
+<status status="PASS" starttime="20220212 10:19:28.685" endtime="20220212 10:19:28.770"/>
 </kw>
-<status status="FAIL" starttime="20220212 09:48:55.138" endtime="20220212 09:48:55.668">Setup failed:
-WebDriverException: Message: Service /Users/balaji/Documents/Company/LT4/robot_framework/drivers/chromedriver unexpectedly exited. Status code was: 1
-</status>
+<status status="PASS" starttime="20220212 10:19:22.173" endtime="20220212 10:19:28.770"/>
 </test>
 <doc>This suit file handles all the test case related to the
 invalid credentials</doc>
-<status status="FAIL" starttime="20220212 09:48:23.531" endtime="20220212 09:48:55.669"/>
+<status status="PASS" starttime="20220212 10:19:02.518" endtime="20220212 10:19:28.771"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="4" skip="0">All Tests</stat>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="4" skip="0" id="s1" name="Verify Invalid Credentials Suite">Verify Invalid Credentials Suite</stat>
+<stat pass="4" fail="0" skip="0" id="s1" name="Verify Invalid Credentials Suite">Verify Invalid Credentials Suite</stat>
 </suite>
 </statistics>
 <errors>
